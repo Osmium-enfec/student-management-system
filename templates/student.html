@@ -1,0 +1,35 @@
+<h2>Student: {{roll_no}}</h2>
+<p><b>Name:</b> {{student_name}}</p>
+<p><b>Grade:</b> {{grade_disp}}</p>
+<p><b>Attendance:</b> {{attendance}}</p>
+<p><b>Feed Paid:</b> {{fees_paid_text}}</p>
+
+<h3>Update Grade</h3>
+<form method="post" action="/student/{{roll_no}}/grade">
+    <input name="grade" placeholder="e.g., 1, 2, 3" required>
+    <button type ="submit">Save Grade</button>
+</form>
+<h3>Mark Attendance</h3>
+<form method="post" action="/student/{{roll_no}}/attendance">
+  <label>Present?</label>
+  <select name="present">
+    <option value="y">Yes</option>
+    <option value="n">No</option>
+  </select>
+  <button type="submit">Update</button>
+</form>
+
+<h3>Update Fee Status</h3>
+<form method="post" action="/student/{{roll_no}}/fees">
+  <label>Fees Paid?</label>
+  <select name="paid">
+    <option value="y">Yes</option>
+    <option value="n">No</option>
+  </select>
+  <button type="submit">Update</button>
+</form>
+
+<h3>Delete Student</h3>
+<form method="post" action="/student/{{roll_no}}/delete" onsubmit="return confirm('Really delete?')">
+  <button type="submit" style="background:#e74c3c;color:#fff;">Delete</button>
+</form>
